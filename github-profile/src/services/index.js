@@ -7,11 +7,11 @@ const header = {
 };
 
 export const getProfile = async (username) => {
-	const response = await fetch(`${base_url}users/${username}`, token ? { header } : "");
+	const response = await fetch(`${base_url}users/${username}`, token && header);
 	return await response.json();
 };
 
 export const getRepos = async (username) => {
-	const response = await fetch(`${base_url}users/${username}/repos`, token ? { header } : "");
+	const response = await fetch(`${base_url}users/${username}/repos`, token && header);
 	return await response.json();
 };
