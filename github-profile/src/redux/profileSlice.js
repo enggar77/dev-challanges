@@ -10,9 +10,8 @@ export const fetchProfileData = createAsyncThunk("user/fetchProfileData", async 
 	try {
 		const profile = await dispatch(fetchProfile(username)).unwrap();
 		if (profile) {
-			await Promise.all([dispatch(fetchRepos(username)).unwrap()]);
+			await dispatch(fetchRepos(username)).unwrap();
 		}
-
 		return profile;
 	} catch (error) {
 		console.log("Error fetching profile data:", error.message);
